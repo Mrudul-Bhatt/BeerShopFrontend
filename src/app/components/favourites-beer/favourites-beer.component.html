@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let beer of beers">
+      <div class="card" style="width: 18rem; height: 25rem; margin: 4px">
+        <img
+          style="height: 200px; width: 100px; padding: auto; margin: auto"
+          class="card-img-top img-fluid"
+          [src]="beer.image_url"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ beer.name | truncateText : 20 }}</h5>
+          <p class="card-text">
+            {{ beer.description | truncateText : 50 }}
+          </p>
+          <a class="btn btn-primary" (click)="removeFavourites(beer.id)"
+            >Remove Favourite</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
